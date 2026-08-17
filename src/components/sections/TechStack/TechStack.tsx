@@ -25,7 +25,7 @@ export function TechStack() {
 
         {/* Category tabs */}
         <ScrollReveal>
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex overflow-x-auto pb-2 gap-2 mb-8 max-w-full sm:flex-wrap shrink-0">
             {TECH_STACK.map((category) => (
               <button
                 key={category.category}

@@ -24,7 +24,7 @@ function BackendFlowDiagram() {
   return (
     <div className="relative w-full max-w-[280px] mx-auto lg:mx-0">
       <svg
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 280 560"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
@@ -94,7 +94,7 @@ function HeroTerminal() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.2, duration: 0.6 }}
-      className="terminal mt-8 max-w-md hidden md:block"
+      className="terminal mt-8 max-w-md hidden sm:block"
     >
       <div className="terminal-header">
         <div className="terminal-dot bg-red/80" />
@@ -137,9 +137,9 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background grid */}
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden="true" />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(88,166,255,0.08), transparent)",
@@ -147,15 +147,15 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-20">
+        <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-center">
           {/* Left Column */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="section-label mb-6"
+              className="section-label mb-4 sm:mb-6"
             >
               {CONTACT.title}
             </motion.div>
@@ -164,7 +164,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.15] mb-6"
             >
               I build backend systems{" "}
               <span className="text-accent">that scale.</span>
@@ -174,7 +174,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.5 }}
-              className="text-lg sm:text-xl text-muted max-w-2xl mb-8 leading-relaxed"
+              className="text-base sm:text-xl text-muted max-w-2xl mb-8 leading-relaxed"
             >
               {HERO.subheadline}
             </motion.p>
@@ -184,18 +184,18 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-wrap gap-4 mb-8"
+              className="flex flex-wrap gap-3 sm:gap-4 mb-8"
             >
               <a
                 href="#case-studies"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors text-sm sm:text-base"
+                className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors text-sm sm:text-base"
               >
                 View My Work
                 <ArrowDown className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-accent/40 hover:text-accent transition-colors text-sm sm:text-base"
+                className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3 border border-border text-foreground font-medium rounded-lg hover:border-accent/40 hover:text-accent transition-colors text-sm sm:text-base"
               >
                 Let&apos;s Build Something
               </a>
@@ -206,7 +206,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
-              className="flex items-center gap-3 mb-10"
+              className="flex items-center gap-3 mb-8 sm:mb-10"
             >
               {[
                 { icon: GithubIcon, href: CONTACT.github, label: "GitHub" },
@@ -227,19 +227,19 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* Stats Row */}
+            {/* Stats Row - Responsive 2x2 grid on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="flex flex-wrap gap-6 sm:gap-8 pt-8 border-t border-border"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-border"
             >
               {HERO.stats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl sm:text-3xl font-bold text-accent">
+                  <div className="text-xl sm:text-3xl font-bold text-accent">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-muted mt-1">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-muted mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -252,7 +252,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="hidden lg:block"
+            className="hidden lg:block pointer-events-none"
           >
             <BackendFlowDiagram />
           </motion.div>

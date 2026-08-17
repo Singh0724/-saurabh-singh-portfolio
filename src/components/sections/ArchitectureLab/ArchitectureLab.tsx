@@ -26,7 +26,7 @@ export function ArchitectureLab() {
 
         {/* Tabs */}
         <ScrollReveal>
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex overflow-x-auto pb-2 gap-2 mb-8 max-w-full sm:flex-wrap shrink-0">
             {ARCHITECTURE_TABS.map((tab) => (
               <button
                 key={tab.id}
