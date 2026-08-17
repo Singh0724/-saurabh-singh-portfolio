@@ -1,0 +1,48 @@
+const fs = require('fs');
+
+const streamContent = `BT
+/F1 18 Tf
+50 740 Td (Saurabh Singh - Senior Backend Engineer) Tj
+/F1 10 Tf
+0 -20 Td (Vadodara, Gujarat, India | LinkedIn: www.linkedin.com/in/saurabh-singh-backend) Tj
+0 -30 Td (SUMMARY) Tj
+0 -15 Td (Senior Backend Engineer with 5+ years of experience in API architecture, distributed caching,) Tj
+0 -15 Td (and scalable cloud infrastructure. Proven record of improving API performance by 40%.) Tj
+0 -30 Td (EXPERIENCE) Tj
+0 -15 Td (Kode Creators Pvt. Ltd. | Senior Backend Developer (Dec 2025 - Present)) Tj
+0 -15 Td (- Reduced average API response time by 40% via MySQL indexing & Redis caching.) Tj
+0 -15 Td (- Reduced post-release defect rate by 30% using automated testing & PHPStan.) Tj
+0 -15 Td (- Built event-driven systems with Redis Pub/Sub, JWT/OAuth 2.0 auth, and AWS.) Tj
+0 -25 Td (BIT Infotech | Full Stack Developer (Feb 2024 - Nov 2025)) Tj
+0 -15 Td (- Engineered LMS/CRM backend serving 500+ daily active users.) Tj
+0 -25 Td (Dev Infotech | Website Developer (Jan 2021 - Dec 2023)) Tj
+0 -15 Td (- Delivered 20+ production PHP/MySQL backend systems.) Tj
+0 -30 Td (ACHIEVEMENTS & EDUCATION) Tj
+0 -15 Td (- 2nd Place, Parul University Tech Expo 2023 (Facial Recognition Attendance Tracker)) Tj
+0 -15 Td (- 100+ Hours of Technical Instruction Delivered) Tj
+ET`;
+
+const pdf = `%PDF-1.4
+1 0 obj <</Type /Catalog /Pages 2 0 R>> endobj
+2 0 obj <</Type /Pages /Count 1 /Kids [3 0 R]>> endobj
+3 0 obj <</Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources <</Font <</F1 4 0 R>>>> /Contents 5 0 R>> endobj
+4 0 obj <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>> endobj
+5 0 obj <</Length ${streamContent.length}>> stream
+${streamContent}
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000062 00000 n 
+0000000117 00000 n 
+0000000244 00000 n 
+0000000318 00000 n 
+trailer <</Size 6 /Root 1 0 R>>
+startxref
+${400 + streamContent.length}
+%%EOF`;
+
+fs.writeFileSync('public/resume.pdf', pdf);
+console.log('public/resume.pdf created successfully');
