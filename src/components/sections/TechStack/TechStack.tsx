@@ -26,43 +26,54 @@ export function TechStack() {
         {/* Category tabs */}
         <ScrollReveal>
           <div className="flex overflow-x-auto pb-2 gap-2 mb-8 max-w-full sm:flex-wrap shrink-0">
-            {TECH_STACK.map((category) => (
-              <button
-                key={category.category}
-                onClick={() => setActiveCategory(category.category)}
-                className={cn(
-                  "px-4 py-2 text-sm font-medium rounded-lg border transition-all",
-                  activeCategory === category.category
-                    ? "bg-accent/10 text-accent border-accent/30"
-                    : "bg-surface border-border text-muted hover:text-foreground hover:border-border-hover"
-                )}
-              >
-                {category.category}
-              </button>
-            ))}
+            {TECH_STACK.map((category) => {
+              const isActive = activeCategory === category.category;
+              return (
+                <button
+                  key={category.category}
+                  onClick={() => setActiveCategory(category.category)}
+                  className={cn(
+                    "relative px-4 py-2 text-sm font-medium rounded-lg border transition-colors",
+                    isActive
+                      ? "text-accent border-accent/30 font-semibold"
+                      : "bg-surface border-border text-muted hover:text-foreground hover:border-border-hover"
+                  )}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTechCategory"
+                      className="absolute inset-0 bg-accent/10 rounded-lg border border-accent/30 -z-10"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  {category.category}
+                </button>
+              );
+            })}
           </div>
         </ScrollReveal>
 
         {/* Tech items */}
         <motion.div
           key={activeCategory}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
         >
           {TECH_STACK.find((c) => c.category === activeCategory)?.items.map(
             (item, i) => (
               <motion.div
                 key={item}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.92 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.04 }}
-                whileHover={{ y: -2, transition: { duration: 0.15 } }}
-                className="glow-card px-4 py-3 flex items-center gap-3 cursor-default"
+                transition={{ delay: i * 0.04, type: "spring", stiffness: 350, damping: 22 }}
+                whileHover={{ y: -3, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="glow-card px-4 py-3 flex items-center gap-3 cursor-default border border-border/80 hover:border-accent/40 hover:shadow-[0_4px_20px_rgba(88,166,255,0.1)] transition-colors group"
               >
-                <div className="w-2 h-2 rounded-full bg-accent/40" />
-                <span className="text-sm font-mono text-foreground/90">{item}</span>
+                <div className="w-2 h-2 rounded-full bg-accent/50 group-hover:bg-accent transition-colors shadow-[0_0_6px_rgba(88,166,255,0.4)]" />
+                <span className="text-sm font-mono text-foreground/90 group-hover:text-foreground transition-colors">{item}</span>
               </motion.div>
             )
           )}

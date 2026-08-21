@@ -89,7 +89,11 @@ export function CaseStudies() {
         <div className="grid lg:grid-cols-2 gap-6">
           {CASE_STUDIES.map((study, i) => (
             <ScrollReveal key={study.number} delay={i * 0.1}>
-              <div className="glow-card p-6 sm:p-8 h-full flex flex-col">
+              <motion.div
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                className="glow-card p-6 sm:p-8 h-full flex flex-col transition-all hover:border-accent/40 hover:shadow-[0_12px_40px_rgba(88,166,255,0.1)]"
+              >
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-4">
                   <span className="text-4xl font-bold text-accent/20 font-mono leading-none">
@@ -150,15 +154,16 @@ export function CaseStudies() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {study.tags.map((tag) => (
-                    <span
+                    <motion.span
                       key={tag}
-                      className="text-xs font-mono px-2 py-1 rounded bg-surface-2 text-muted border border-border"
+                      whileHover={{ scale: 1.05 }}
+                      className="text-xs font-mono px-2 py-1 rounded bg-surface-2 text-muted border border-border transition-colors hover:border-accent/30 hover:text-foreground"
                     >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </ScrollReveal>
           ))}
         </div>

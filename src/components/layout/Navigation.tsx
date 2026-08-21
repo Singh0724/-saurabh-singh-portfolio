@@ -73,28 +73,38 @@ export function Navigation() {
 
             {/* Desktop Links */}
             <div className="hidden lg:flex items-center gap-1">
-              {NAV_LINKS.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className={cn(
-                    "px-3 py-2 text-sm rounded-md transition-colors",
-                    activeSection === link.href
-                      ? "text-accent bg-accent/10"
-                      : "text-muted hover:text-foreground hover:bg-white/5"
-                  )}
-                >
-                  {link.label}
-                </button>
-              ))}
-              <a
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.href;
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className={cn(
+                      "relative px-3 py-2 text-sm rounded-md transition-colors",
+                      isActive ? "text-accent font-medium" : "text-muted hover:text-foreground"
+                    )}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavPill"
+                        className="absolute inset-0 bg-accent/10 rounded-md -z-10 border border-accent/20"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {link.label}
+                  </button>
+                );
+              })}
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href={CONTACT.resumeUrl}
                 download
-                className="ml-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-accent/10 text-accent border border-accent/20 rounded-lg hover:bg-accent/20 transition-colors"
+                className="ml-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-accent/10 text-accent border border-accent/20 rounded-lg hover:bg-accent/20 transition-colors shadow-sm"
               >
                 <Download className="w-4 h-4" />
                 Resume
-              </a>
+              </motion.a>
             </div>
 
             {/* Mobile Menu Toggle */}

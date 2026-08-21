@@ -1,30 +1,36 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { METRICS } from "@/lib/data";
 import { useInView } from "@/lib/hooks/useInView";
 import { useCountUp } from "@/lib/hooks/useCountUp";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { StaggerContainer, StaggerItem, EASINGS } from "@/components/ui/Motion";
 
-function MetricCard({ value, suffix, label, delay }: {
+function MetricCard({ value, suffix, label }: {
   value: number;
   suffix: string;
   label: string;
-  delay: number;
 }) {
   const { ref, isInView } = useInView(0.3);
   const count = useCountUp({ end: value, enabled: isInView });
 
   return (
-    <ScrollReveal delay={delay}>
-      <div ref={ref} className="glow-card p-6 sm:p-8 text-center">
+    <StaggerItem>
+      <motion.div
+        ref={ref}
+        whileHover={{ y: -4, scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 350, damping: 22 }}
+        className="glow-card p-6 sm:p-8 text-center transition-shadow hover:shadow-[0_8px_30px_rgba(88,166,255,0.12)] border border-border/80 hover:border-accent/40"
+      >
         <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent mb-2">
           {count}
           <span className="text-accent/80">{suffix}</span>
         </div>
         <div className="text-sm text-muted leading-snug">{label}</div>
-      </div>
-    </ScrollReveal>
+      </motion.div>
+    </StaggerItem>
   );
 }
 
@@ -42,17 +48,16 @@ export function Impact() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {METRICS.map((metric, i) => (
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {METRICS.map((metric) => (
             <MetricCard
               key={metric.label}
               value={metric.value}
               suffix={metric.suffix}
               label={metric.label}
-              delay={i * 0.08}
             />
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

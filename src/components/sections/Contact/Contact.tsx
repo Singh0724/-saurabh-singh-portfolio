@@ -127,21 +127,24 @@ export function Contact() {
         <ScrollReveal delay={0.2}>
           <div className="flex flex-wrap justify-center gap-4">
             {links.map(({ icon: Icon, label, href, primary }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 download={label === "Resume" ? true : undefined}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20 }}
                 className={
                   primary
-                    ? "inline-flex items-center gap-2 px-6 py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors"
-                    : "inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-accent/40 hover:text-accent transition-colors"
+                    ? "inline-flex items-center gap-2 px-6 py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors shadow-[0_0_20px_rgba(88,166,255,0.15)]"
+                    : "inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-accent/40 hover:text-accent transition-colors shadow-sm"
                 }
               >
                 <Icon className="w-5 h-5" />
                 {label}
-              </a>
+              </motion.a>
             ))}
           </div>
         </ScrollReveal>

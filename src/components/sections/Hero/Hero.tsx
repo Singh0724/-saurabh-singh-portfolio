@@ -19,6 +19,7 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 import { HERO, CONTACT, BACKEND_FLOW_NODES } from "@/lib/data";
+import { AnimatedCounter, EASINGS } from "@/components/ui/Motion";
 
 function BackendFlowDiagram() {
   return (
@@ -183,22 +184,28 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.4, duration: 0.5, ease: EASINGS.smooth }}
               className="flex flex-wrap gap-3 sm:gap-4 mb-8"
             >
-              <a
+              <motion.a
                 href="#case-studies"
-                className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3 bg-accent text-[#080c10] font-semibold rounded-lg hover:bg-accent-hover transition-colors text-sm sm:text-base shadow-[0_0_20px_rgba(88,166,255,0.15)]"
               >
                 View My Work
                 <ArrowDown className="w-4 h-4" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#contact"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3 border border-border text-foreground font-medium rounded-lg hover:border-accent/40 hover:text-accent transition-colors text-sm sm:text-base"
               >
                 Let&apos;s Build Something
-              </a>
+              </motion.a>
             </motion.div>
 
             {/* Social Icons */}
@@ -213,17 +220,22 @@ export function Hero() {
                 { icon: LinkedinIcon, href: CONTACT.linkedin, label: "LinkedIn" },
                 { icon: Mail, href: `mailto:${CONTACT.email}`, label: "Email" },
                 { icon: Download, href: CONTACT.resumeUrl, label: "Download Resume" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
+              ].map(({ icon: Icon, href, label }, idx) => (
+                <motion.a
                   key={label}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={label}
-                  className="p-2.5 rounded-lg border border-border text-muted hover:text-accent hover:border-accent/30 transition-colors"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + idx * 0.08, type: "spring", stiffness: 350, damping: 20 }}
+                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-2.5 rounded-lg border border-border text-muted hover:text-accent hover:border-accent/40 transition-colors shadow-sm"
                 >
                   <Icon className="w-5 h-5" />
-                </a>
+                </motion.a>
               ))}
             </motion.div>
 
@@ -231,16 +243,21 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
+              transition={{ delay: 0.7, duration: 0.5, ease: EASINGS.smooth }}
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-border"
             >
-              {HERO.stats.map((stat) => (
-                <div key={stat.label}>
+              {HERO.stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.75 + i * 0.1, duration: 0.4 }}
+                >
                   <div className="text-xl sm:text-3xl font-bold text-accent">
-                    {stat.value}
+                    <AnimatedCounter value={stat.value} />
                   </div>
                   <div className="text-xs sm:text-sm text-muted mt-0.5">{stat.label}</div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
 

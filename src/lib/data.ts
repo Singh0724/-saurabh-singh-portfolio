@@ -1,5 +1,6 @@
 /* ──────────────────────────────────────────────────────────
    SINGLE SOURCE OF TRUTH — All portfolio content
+   (Updated directly from official resume)
    ────────────────────────────────────────────────────────── */
 
 // ── Contact / Social ──────────────────────────────────────
@@ -8,7 +9,8 @@ export const CONTACT = {
   title: "Senior Backend Engineer",
   tagline: "API Architecture · Distributed Caching · Scalable Systems",
   location: "Vadodara, Gujarat, India",
-  email: "saurabhsingh@example.com",
+  phone: "+91 83204 44237",
+  email: "singhsaurabh0724@gmail.com",
   github: "https://github.com/saurabhsingh",
   linkedin: "https://www.linkedin.com/in/saurabh-singh-backend",
   resumeUrl: "/resume.pdf",
@@ -18,7 +20,7 @@ export const CONTACT = {
 export const HERO = {
   headline: "I build backend systems that scale.",
   subheadline:
-    "Senior Backend Engineer specializing in API architecture, distributed caching, scalable systems, and production infrastructure.",
+    "Senior Backend Engineer with 5+ years architecting, building, and scaling backend services and REST APIs for production platforms. Expert in API design, MySQL/PostgreSQL optimization, Redis caching, JWT/OAuth auth, Docker, and AWS.",
   stats: [
     { value: "5+", label: "Years Experience" },
     { value: "40%", label: "Faster APIs" },
@@ -43,7 +45,7 @@ export const METRICS = [
   { value: 500, suffix: "+", label: "Daily active users supported" },
   { value: 20, suffix: "+", label: "Production PHP/MySQL systems delivered" },
   { value: 2, suffix: "+", label: "Developers mentored" },
-  { value: 100, suffix: "+", label: "Hours of technical instruction" },
+  { value: 100, suffix: "+", label: "Hours of structured technical instruction" },
 ] as const;
 
 // ── Engineering Philosophy ────────────────────────────────
@@ -51,35 +53,35 @@ export const PHILOSOPHY = [
   {
     title: "Design for Scale",
     description:
-      "Build modular systems that can grow without becoming difficult to maintain.",
+      "Build modular backend architecture that scales horizontally without sacrificing code maintainability.",
     icon: "Layers",
-    tags: ["Laravel", "Microservices", "MVC"],
+    tags: ["Laravel", "Microservices", "REST API Design"],
   },
   {
     title: "Optimize with Evidence",
     description:
-      "Use indexing, caching, profiling, and measurements rather than premature optimization.",
+      "Use MySQL indexing strategies, Redis caching, profiling, and metrics rather than guesswork.",
     icon: "Activity",
     tags: ["Redis", "MySQL", "Query Optimization"],
   },
   {
     title: "Security by Default",
     description:
-      "Authentication, authorization, webhook verification, and secure API design are part of the architecture — not afterthoughts.",
+      "Multi-layered authentication (JWT/OAuth 2.0/Sanctum), webhook signature verification, and secure API design.",
     icon: "Shield",
     tags: ["JWT", "OAuth 2.0", "Sanctum"],
   },
   {
     title: "Ship with Confidence",
     description:
-      "Automated testing, code reviews, static analysis, and CI/CD pipelines ensure every release is production-ready.",
+      "Automated testing (PHPUnit/PestPHP), code review workflows, static analysis (PHPStan), and GitHub Actions CI/CD pipelines.",
     icon: "Rocket",
     tags: ["PHPUnit", "PestPHP", "PHPStan", "GitHub Actions"],
   },
   {
     title: "Own the Entire Lifecycle",
     description:
-      "Design → Develop → Test → Deploy → Monitor → Improve. End-to-end ownership of the systems I build.",
+      "Design → Develop → Test → Containerize → Deploy → Monitor → Maintain. End-to-end ownership for distributed engineering teams.",
     icon: "RefreshCw",
     tags: ["Docker", "AWS", "Nginx", "CI/CD"],
   },
@@ -90,37 +92,37 @@ export const EXPERIENCE = [
   {
     role: "Senior Backend Developer",
     company: "Kode Creators Pvt. Ltd.",
+    location: "Vadodara",
     period: "Dec 2025 — Present",
     type: "current" as const,
     highlights: [
-      "Architecting and optimizing backend systems for US-based client platforms",
-      "Reduced average API response time by 40% through MySQL indexing and Redis caching redesign",
-      "Reduced post-release bug rate by 30% through structured PR reviews, coding standards, automated testing, and PHPStan",
-      "Implemented real-time features using Redis Pub/Sub for event-driven communication",
-      "Built secure authentication systems using JWT, OAuth 2.0, and Laravel Sanctum",
-      "Integrated payment gateways (Razorpay, PayU, Stripe) and LLM APIs (OpenAI, Claude)",
-      "Mentored 2+ backend developers on architecture patterns and code quality",
+      "Own backend service and API architecture for US-based client platforms, driving design decisions and feature delivery in direct coordination with international stakeholders.",
+      "Redesigned MySQL indexing strategy and introduced Redis caching across production services, cutting average API response time by 40% and restructuring services into modular components.",
+      "Built secure API authentication (JWT, OAuth 2.0, Sanctum) and a Redis pub/sub event-driven layer to support real-time features across services.",
+      "Containerized services with Docker/Docker Compose and configured Nginx for reverse-proxy, load-balanced deployments on AWS (EC2, S3, RDS); automated build/test/deploy with GitHub Actions CI/CD.",
+      "Designed secure webhook/signature-verified integrations with payment gateways (Razorpay, PayU, Stripe) and shipped a production LLM (OpenAI/Claude) integration.",
+      "Cut post-release bug rate 30% by establishing a structured PR review workflow, coding standards, and PHPUnit/PestPHP coverage with PHPStan static analysis; mentored 2+ backend developers.",
     ],
     tags: [
       "PHP 8.x", "Laravel", "MySQL", "Redis", "Redis Pub/Sub",
-      "JWT", "OAuth 2.0", "Docker", "Nginx", "AWS",
-      "GitHub Actions", "PHPUnit", "PestPHP", "PHPStan",
+      "JWT", "OAuth 2.0", "Sanctum", "Docker", "Nginx", "AWS (EC2/S3/RDS)",
+      "GitHub Actions", "PHPUnit", "PestPHP", "PHPStan", "Razorpay/Stripe", "OpenAI/Claude API",
     ],
     outcomes: [
-      { metric: "40%", description: "API performance improvement" },
-      { metric: "30%", description: "Bug rate reduction" },
+      { metric: "40%", description: "API response time reduction" },
+      { metric: "30%", description: "Post-release defect reduction" },
     ],
   },
   {
     role: "Full Stack Developer",
     company: "BIT Infotech",
+    location: "Vadodara",
     period: "Feb 2024 — Nov 2025",
     type: "past" as const,
     highlights: [
-      "Built LMS and CRM backend systems serving 500+ daily active users",
-      "Developed versioned REST APIs with Laravel and CodeIgniter",
-      "Collaborated with frontend teams to improve SEO and Core Web Vitals",
-      "Achieved 35% organic traffic growth through technical SEO optimization",
+      "Architected and scaled an LMS/CRM backend to 500+ daily active users using modular, horizontally-scalable Laravel/CodeIgniter services.",
+      "Designed versioned REST APIs consumed by frontend teams, reducing integration bugs across 2 teams through clearer contracts.",
+      "Contributed backend support for SEO/Core Web Vitals initiatives, part of a push that grew organic traffic 35% within 3 months.",
     ],
     tags: [
       "Laravel", "CodeIgniter", "MySQL", "REST APIs",
@@ -134,12 +136,12 @@ export const EXPERIENCE = [
   {
     role: "Website Developer",
     company: "Dev Infotech",
+    location: "Vadodara",
     period: "Jan 2021 — Dec 2023",
     type: "past" as const,
     highlights: [
-      "Delivered 20+ production PHP/MySQL backend systems end-to-end",
-      "Designed database schemas and managed full deployment lifecycles",
-      "Integrated payment gateways including Razorpay and PayU",
+      "Built and deployed 20+ production PHP/MySQL backend systems end-to-end as sole developer, from schema design through hosting/deployment.",
+      "Integrated Razorpay/PayU payment APIs with secure transaction handling across multiple client industries, with zero major incidents.",
     ],
     tags: [
       "PHP", "MySQL", "Razorpay", "PayU",
@@ -148,6 +150,22 @@ export const EXPERIENCE = [
     outcomes: [
       { metric: "20+", description: "Production systems delivered" },
     ],
+  },
+] as const;
+
+// ── Education ─────────────────────────────────────────────
+export const EDUCATION = [
+  {
+    degree: "Master of Computer Applications (MCA)",
+    institution: "Parul University",
+    location: "Vadodara, Gujarat",
+    period: "2022 – 2024",
+  },
+  {
+    degree: "Bachelor of Computer Applications (B.C.A)",
+    institution: "Sardar Patel University",
+    location: "Gujarat",
+    period: "2019 – 2022",
   },
 ] as const;
 
@@ -284,35 +302,38 @@ export const ARCHITECTURE_TABS = [
 // ── Tech Stack ────────────────────────────────────────────
 export const TECH_STACK = [
   {
-    category: "Backend",
-    items: ["PHP 8.x", "Laravel", "CodeIgniter", "Node.js / Express", "Python / FastAPI"],
-  },
-  {
-    category: "Data",
-    items: ["MySQL", "PostgreSQL", "Redis"],
-  },
-  {
-    category: "Architecture",
+    category: "Backend Architecture",
     items: [
-      "REST APIs", "MVC", "Microservices Fundamentals",
-      "Event-Driven Architecture", "Horizontal Scalability", "Load Balancing",
+      "REST API Design", "MVC Architecture", "Microservices Fundamentals",
+      "Event-Driven Architecture (Redis Pub/Sub)", "Horizontal Scalability", "Load Balancing",
+    ],
+  },
+  {
+    category: "Languages & Frameworks",
+    items: ["PHP (Core & OOP, PHP 8.x)", "Laravel", "CodeIgniter", "Node.js / Express", "Python (FastAPI)"],
+  },
+  {
+    category: "Data & Caching",
+    items: [
+      "MySQL (Query Optimization, Indexing, Schema Design, Joins)",
+      "PostgreSQL", "Redis (Caching, Queues, Pub/Sub)",
     ],
   },
   {
     category: "Security",
-    items: ["JWT", "OAuth 2.0", "Laravel Sanctum", "Webhook Signature Verification"],
+    items: ["JWT", "OAuth 2.0", "Laravel Sanctum", "Secure API Authentication", "Webhook Signature Verification"],
   },
   {
     category: "Infrastructure",
-    items: ["Docker", "Docker Compose", "Nginx", "AWS EC2", "AWS S3", "AWS RDS"],
+    items: ["Docker", "Docker Compose", "Nginx (Reverse Proxy & Load Balancing)", "AWS (EC2, S3, RDS)", "CI/CD (GitHub Actions)", "Git / GitHub"],
   },
   {
-    category: "Quality",
-    items: ["PHPUnit", "PestPHP", "PHPStan", "Code Reviews", "Coding Standards"],
+    category: "Testing & Process",
+    items: ["PHPUnit", "PestPHP", "PHPStan", "Code Review Workflows", "Coding Standards"],
   },
   {
     category: "Integrations",
-    items: ["Razorpay", "PayU", "Stripe", "OpenAI API", "Claude API"],
+    items: ["Payment Gateways (Razorpay, PayU, Stripe)", "LLM API Integration (OpenAI / Claude)"],
   },
 ] as const;
 
@@ -328,7 +349,7 @@ export const ACHIEVEMENTS = [
     title: "Technical Instruction",
     position: "100+ Hours",
     project: "Structured Technical Training",
-    description: "Delivered over 100 hours of structured technical instruction covering backend development, API design, and software engineering best practices.",
+    description: "Delivered over 100 hours of structured live technical instruction covering backend development, API design, and software engineering best practices; recognized for teaching quality and consistency.",
   },
 ] as const;
 
@@ -358,6 +379,7 @@ export const NAV_LINKS = [
   { label: "Case Studies", href: "#case-studies" },
   { label: "Architecture Lab", href: "#architecture-lab" },
   { label: "Skills", href: "#skills" },
+  { label: "Education", href: "#education" },
   { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ] as const;

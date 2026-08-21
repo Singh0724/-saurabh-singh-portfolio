@@ -9,6 +9,7 @@ import { NetworkSection } from "@/components/3d/Canvas";
 import { ArchitectureLab } from "@/components/sections/ArchitectureLab/ArchitectureLab";
 import { TechStack } from "@/components/sections/TechStack/TechStack";
 import { Achievements } from "@/components/sections/Achievements/Achievements";
+import { Education } from "@/components/sections/Education/Education";
 import { Recruiter } from "@/components/sections/Recruiter/Recruiter";
 import { Contact } from "@/components/sections/Contact/Contact";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <NetworkSection />
         <ArchitectureLab />
         <TechStack />
+        <Education />
         <Achievements />
         <Recruiter />
         <Contact />

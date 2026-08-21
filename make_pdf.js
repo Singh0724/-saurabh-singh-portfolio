@@ -2,24 +2,53 @@ const fs = require('fs');
 
 const streamContent = `BT
 /F1 18 Tf
-50 740 Td (Saurabh Singh - Senior Backend Engineer) Tj
+50 740 Td (SAURABH SINGH) Tj
 /F1 10 Tf
-0 -20 Td (Vadodara, Gujarat, India | LinkedIn: www.linkedin.com/in/saurabh-singh-backend) Tj
-0 -30 Td (SUMMARY) Tj
-0 -15 Td (Senior Backend Engineer with 5+ years of experience in API architecture, distributed caching,) Tj
-0 -15 Td (and scalable cloud infrastructure. Proven record of improving API performance by 40%.) Tj
-0 -30 Td (EXPERIENCE) Tj
-0 -15 Td (Kode Creators Pvt. Ltd. | Senior Backend Developer (Dec 2025 - Present)) Tj
-0 -15 Td (- Reduced average API response time by 40% via MySQL indexing & Redis caching.) Tj
-0 -15 Td (- Reduced post-release defect rate by 30% using automated testing & PHPStan.) Tj
-0 -15 Td (- Built event-driven systems with Redis Pub/Sub, JWT/OAuth 2.0 auth, and AWS.) Tj
-0 -25 Td (BIT Infotech | Full Stack Developer (Feb 2024 - Nov 2025)) Tj
-0 -15 Td (- Engineered LMS/CRM backend serving 500+ daily active users.) Tj
-0 -25 Td (Dev Infotech | Website Developer (Jan 2021 - Dec 2023)) Tj
-0 -15 Td (- Delivered 20+ production PHP/MySQL backend systems.) Tj
-0 -30 Td (ACHIEVEMENTS & EDUCATION) Tj
-0 -15 Td (- 2nd Place, Parul University Tech Expo 2023 (Facial Recognition Attendance Tracker)) Tj
-0 -15 Td (- 100+ Hours of Technical Instruction Delivered) Tj
+0 -16 Td (Senior Backend Engineer | API Architecture | Distributed Caching | Scalable Systems) Tj
+0 -14 Td (Vadodara, Gujarat, India | +91 83204 44237 | singhsaurabh0724@gmail.com | linkedin.com/in/saurabh-singh-backend) Tj
+
+0 -25 Td (PROFESSIONAL SUMMARY) Tj
+0 -14 Td (Senior Backend Engineer with 5+ years architecting, building, and scaling backend services and REST APIs for) Tj
+0 -13 Td (production platforms serving 500+ daily active users. Full backend lifecycle: API design, MySQL/PostgreSQL schema,) Tj
+0 -13 Td (Redis caching, event-driven pub/sub, JWT/OAuth 2.0/Sanctum auth, Docker containerization, Nginx, and AWS.) Tj
+0 -13 Td (Cut average API response time 40% through indexing/caching, and reduced post-release defects 30% via PHPUnit & PHPStan.) Tj
+
+0 -25 Td (TECHNICAL SKILLS) Tj
+0 -14 Td (Backend Architecture: REST API Design, MVC Architecture, Microservices, Event-Driven Architecture, Load Balancing) Tj
+0 -13 Td (Languages & Frameworks: PHP (Core & OOP, PHP 8.x), Laravel, CodeIgniter, Node.js/Express, Python (FastAPI)) Tj
+0 -13 Td (Data & Caching: MySQL (Query Optimization, Indexing, Schema Design), PostgreSQL, Redis (Caching, Queues, Pub/Sub)) Tj
+0 -13 Td (Security & Infra: JWT, OAuth 2.0, Sanctum, Webhooks, Docker, Nginx, AWS (EC2/S3/RDS), GitHub Actions CI/CD) Tj
+0 -13 Td (Testing & Integrations: PHPUnit, PestPHP, PHPStan, Payment Gateways (Razorpay/PayU/Stripe), OpenAI/Claude API) Tj
+
+0 -25 Td (PROFESSIONAL EXPERIENCE) Tj
+/F1 11 Tf
+0 -15 Td (Senior Backend Developer - Kode Creators Pvt. Ltd. (Dec 2025 - Present | Vadodara)) Tj
+/F1 10 Tf
+0 -14 Td (- Own backend service & API architecture for US-based client platforms with international stakeholders.) Tj
+0 -13 Td (- Redesigned MySQL indexing & introduced Redis caching, cutting average API response time by 40%.) Tj
+0 -13 Td (- Built secure API authentication (JWT, OAuth 2.0, Sanctum) and Redis pub/sub event-driven layer.) Tj
+0 -13 Td (- Containerized services with Docker and configured Nginx load-balanced deployments on AWS (EC2, S3, RDS).) Tj
+0 -13 Td (- Designed secure signature-verified payment integrations (Razorpay, PayU, Stripe) & production LLM (OpenAI/Claude).) Tj
+0 -13 Td (- Cut post-release bug rate 30% by establishing PR workflows, coding standards, PHPUnit, & PHPStan static analysis.) Tj
+
+/F1 11 Tf
+0 -20 Td (Full Stack Developer - BIT Infotech (Feb 2024 - Nov 2025 | Vadodara)) Tj
+/F1 10 Tf
+0 -14 Td (- Architected and scaled LMS/CRM backend to 500+ daily active users using modular Laravel/CodeIgniter services.) Tj
+0 -13 Td (- Designed versioned REST APIs consumed by frontend teams, reducing integration bugs across 2 teams.) Tj
+0 -13 Td (- Contributed backend support for SEO/Core Web Vitals initiatives, growing organic traffic 35% within 3 months.) Tj
+
+/F1 11 Tf
+0 -20 Td (Website Developer - Dev Infotech (Jan 2021 - Dec 2023 | Vadodara)) Tj
+/F1 10 Tf
+0 -14 Td (- Built and deployed 20+ production PHP/MySQL backend systems end-to-end as sole developer.) Tj
+0 -13 Td (- Integrated Razorpay/PayU payment APIs with secure transaction handling across client industries.) Tj
+
+0 -25 Td (EDUCATION & ACHIEVEMENTS) Tj
+0 -14 Td (- MCA (Master of Computer Applications) | Parul University, Vadodara (2022 - 2024)) Tj
+0 -13 Td (- B.C.A (Bachelor of Computer Applications) | Sardar Patel University, Gujarat (2019 - 2022)) Tj
+0 -13 Td (- 2nd Place, Parul University Tech Expo 2023 - Facial Recognition Attendance Tracker) Tj
+0 -13 Td (- 100+ Hours of structured live technical instruction delivered in backend & API engineering) Tj
 ET`;
 
 const pdf = `%PDF-1.4
